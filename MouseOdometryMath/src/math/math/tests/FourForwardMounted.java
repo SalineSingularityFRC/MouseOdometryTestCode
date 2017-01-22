@@ -39,13 +39,6 @@ public class FourForwardMounted {
 		assertEquals(0.0, result[2], Robot.TOLERANCE);
 	}
 	
-	public static double[][] append2DArray(double[][] a, double[][] b) {
-        double[][] result = new double[a.length + b.length][];
-        System.arraycopy(a, 0, result, 0, a.length);
-        System.arraycopy(b, 0, result, a.length, b.length);
-        return result;
-    }
-	
 	//Refers to figure III.9 in the paper by Stephen Bell (page 10)
 		//Reverse method
 		@Test
@@ -61,16 +54,10 @@ public class FourForwardMounted {
 			
 			//old way of doing this. Now it's integrated into the Mouse class
 			//double[] sensorInfo = {sensor_dx1, sensor_dy1, sensor_dx2, sensor_dy2};
-			double[] xArray = {Math.sin(m1.getAlpha()), Math.cos(m1.getAlpha()), Math.sin(m2.getAlpha()), Math.cos(m2.getAlpha())};
-			double[] yArray = {-1 * Math.cos(m1.getAlpha()), Math.sin(m1.getAlpha()), -1 * Math.cos(m2.getAlpha()), Math.sin(m2.getAlpha())};
-			double[] wArray = {m1.getR() * Math.cos(m1.getPhi()), m1.getR() * Math.sin(m1.getPhi()), m2.getR() * Math.cos(m2.getPhi()), m2.getR() * Math.sin(m2.getPhi())};
 			
-			double[][] infoArray = {xArray, yArray, wArray};
-			Matrix a = new Matrix(infoArray);
-			a = a.transpose();
 			
 			OdometryMath math = new OdometryMath();
-			double[] result = math.calculateSensorMotion(a, Robot.dx, Robot.dy, Robot.dw);
+			double[] result = math.calculateSensorMotion(new Mouse[] {m1, m2}, Robot.dx, Robot.dy, Robot.dw);
 			
 			for(double d : result){
 				System.out.println(d);

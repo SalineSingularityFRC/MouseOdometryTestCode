@@ -6,11 +6,29 @@ import Jama.Matrix;
 
 public class OdometryMath {
 	
-	public double[] calculateSensorMotion(Matrix A, double robot_dx, double robot_dy, double robot_dw) {
+	public double[] calculateSensorMotion(Mouse[] mice, double robot_dx, double robot_dy, double robot_dw) {
 		
 		Matrix robotMotion = new Matrix(new double[][] {{robot_dx}, {robot_dy}, {robot_dw}});
 		
-		Matrix result = A.times(robotMotion);
+		double[][] currentArray = {};
+		//Coefficient Matrix
+		for(Mouse m : mice){
+			currentArray = append2DArray(currentArray, m.getCoefficientArray());
+		}
+		
+		Matrix b = new Matrix(currentArray);
+		
+		/*
+		double[] xArray = {Math.sin(m1.getAlpha()), Math.cos(m1.getAlpha()), Math.sin(m2.getAlpha()), Math.cos(m2.getAlpha())};
+		double[] yArray = {-1 * Math.cos(m1.getAlpha()), Math.sin(m1.getAlpha()), -1 * Math.cos(m2.getAlpha()), Math.sin(m2.getAlpha())};
+		double[] wArray = {m1.getR() * Math.cos(m1.getPhi()), m1.getR() * Math.sin(m1.getPhi()), m2.getR() * Math.cos(m2.getPhi()), m2.getR() * Math.sin(m2.getPhi())};
+		
+		double[][] infoArray = {xArray, yArray, wArray};
+		Matrix b = new Matrix(infoArray);
+		b = b.transpose();
+		*/
+		
+		Matrix result = b.times(robotMotion);
 		
 		return result.getColumnPackedCopy();
 	}

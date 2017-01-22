@@ -30,7 +30,7 @@ public class Mouse {
 	//Append to arrays for other sensors
 	public double[][] getCoefficientArray() {
 		return new double[][] { {Math.sin(this.getAlpha()), -1 * Math.cos(this.getAlpha()), this.getR() * Math.cos(this.getPhi())},
-			     {Math.cos(this.getAlpha()), Math.sin(this.getAlpha()),      this.getR() * Math.sin(this.getPhi())}
+			                    {Math.cos(this.getAlpha()), Math.sin(this.getAlpha()),      this.getR() * Math.sin(this.getPhi())}
 		};
 	}
 	
