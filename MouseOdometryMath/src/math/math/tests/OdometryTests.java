@@ -1,10 +1,13 @@
-package math.math.math;
+package math.math.tests;
 
 import static org.junit.Assert.*;
 
 import java.util.Arrays;
 
 import Jama.Matrix;
+import math.math.math.Mouse;
+import math.math.math.OdometryMath;
+
 import org.junit.Test;
 
 
