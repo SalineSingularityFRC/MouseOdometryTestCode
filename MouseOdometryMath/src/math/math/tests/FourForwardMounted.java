@@ -16,16 +16,6 @@ public class FourForwardMounted {
 	
 	//TODO add code to stop accounting for a mouse getting disconected, not getting an image, or glitching
 	
-	//robot calculated change in position variables
-	public double robot_dx;
-	public double robot_dy;
-	public double robot_dw;
-	
-	public double world_dx;
-	public double world_dy;
-	
-	public static final double TOLERANCE = 0.0001;
-	
 	@Test
 	public void straightSidewaysRobotMotion2(){
 		
@@ -44,9 +34,9 @@ public class FourForwardMounted {
 		OdometryMath math = new OdometryMath();
 		double[] result = math.calculateRobotMotion(new Mouse[] {m1,m2,m3,m4}, bArray);
 		
-		assertEquals(5.0, result[0], TOLERANCE);
-		assertEquals(0.0, result[1], TOLERANCE);
-		assertEquals(0.0, result[2], TOLERANCE);
+		assertEquals(5.0, result[0], Robot.TOLERANCE);
+		assertEquals(0.0, result[1], Robot.TOLERANCE);
+		assertEquals(0.0, result[2], Robot.TOLERANCE);
 	}
 	
 	public static double[][] append2DArray(double[][] a, double[][] b) {
@@ -62,9 +52,9 @@ public class FourForwardMounted {
 		public void straightSidewaysSensorMotionReverse() {
 			
 			//hard-coded robot motion values
-			robot_dx = 5;
-			robot_dy = 0;
-			robot_dw = 0;
+			Robot.dx = 5;
+			Robot.dy = 0;
+			Robot.dw = 0;
 			
 			Mouse m1 = new Mouse(Math.PI/4, 2.0, Math.PI/4);
 			Mouse m2 = new Mouse((5*Math.PI)/4, 2.0, Math.PI/4);
@@ -80,16 +70,16 @@ public class FourForwardMounted {
 			a = a.transpose();
 			
 			OdometryMath math = new OdometryMath();
-			double[] result = math.calculateSensorMotion(a, robot_dx, robot_dy, robot_dw);
+			double[] result = math.calculateSensorMotion(a, Robot.dx, Robot.dy, Robot.dw);
 			
 			for(double d : result){
 				System.out.println(d);
 			}
 			
-			assertEquals(5.0, result[0], TOLERANCE);
-			assertEquals(0.0, result[1], TOLERANCE);
-			assertEquals(-5.0, result[2], TOLERANCE);
-			assertEquals(0.0, result[3], TOLERANCE);
+			assertEquals(5.0, result[0], Robot.TOLERANCE);
+			assertEquals(0.0, result[1], Robot.TOLERANCE);
+			assertEquals(-5.0, result[2], Robot.TOLERANCE);
+			assertEquals(0.0, result[3], Robot.TOLERANCE);
 		}
 		
 
@@ -108,9 +98,9 @@ public class FourForwardMounted {
 			OdometryMath math = new OdometryMath();
 			double[] result = math.calculateRobotMotion(new Mouse[] {m1,m2}, bArray);
 			
-			assertEquals(5.0, result[0], TOLERANCE);
-			assertEquals(0.0, result[1], TOLERANCE);
-			assertEquals(0.0, result[2], TOLERANCE);
+			assertEquals(5.0, result[0], Robot.TOLERANCE);
+			assertEquals(0.0, result[1], Robot.TOLERANCE);
+			assertEquals(0.0, result[2], Robot.TOLERANCE);
 		}
 
 		@Test
@@ -127,9 +117,9 @@ public class FourForwardMounted {
 			OdometryMath math = new OdometryMath();
 			double[] result = math.calculateRobotMotion(new Mouse[] {m1,m2}, bArray);
 			
-			assertEquals(5.0, result[0], TOLERANCE);
-			assertEquals(0.0, result[1], TOLERANCE);
-			assertEquals(0.0, result[2], TOLERANCE);
+			assertEquals(5.0, result[0], Robot.TOLERANCE);
+			assertEquals(0.0, result[1], Robot.TOLERANCE);
+			assertEquals(0.0, result[2], Robot.TOLERANCE);
 		}
 
 	*/
