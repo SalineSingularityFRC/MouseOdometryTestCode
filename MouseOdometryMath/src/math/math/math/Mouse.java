@@ -24,6 +24,8 @@ public class Mouse {
 	
 	public Mouse(double theta, double r, double phi) {
 		alpha = theta + phi;
+		this.r = r;
+		this.phi = phi;
 	}
 	
 	//Gets the coefficient array (Bell paper figure III.11) for ONE sensor

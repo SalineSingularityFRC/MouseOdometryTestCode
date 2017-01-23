@@ -37,7 +37,17 @@ public class TwoOutwardMounted {
 	// forwards method
 	@Test
 	public void right1Foot() {
-
+		
+		//sensor input array
+		double[][] bArray = {{1 / Math.sqrt(2.0)}, {1 / Math.sqrt(2.0)}, {-1 / Math.sqrt(2.0)} , {-1 / Math.sqrt(2.0)}};
+		
+		OdometryMath math = new OdometryMath();
+		double[] result = math.calculateRobotMotion(new Mouse[] {m1, m2}, bArray);
+		
+		assertEquals(1.0, result[0], Robot.TOLERANCE); //dX
+		assertEquals(0.0, result[1], Robot.TOLERANCE); //dY
+		assertEquals(0.0, result[2], Robot.TOLERANCE); //dw
+		
 	}
 
 }

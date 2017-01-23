@@ -50,6 +50,12 @@ public class OdometryMath {
 			System.out.println("A: " + a.getRowDimension() + " x " + a.getColumnDimension());
 			System.out.println("B: " + b.getRowDimension() + " x " + b.getColumnDimension());
 			
+			System.out.println("A:");
+			a.print(6, 3);
+
+			System.out.println("B:");
+			b.print(6, 3);
+			
 			Matrix robotMotion = a.solve(b);
 			double[] robotMotionArray = robotMotion.getColumnPackedCopy();
 			
