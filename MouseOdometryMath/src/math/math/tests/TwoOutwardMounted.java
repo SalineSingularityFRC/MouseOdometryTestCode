@@ -34,12 +34,13 @@ public class TwoOutwardMounted {
 
 	}
 
+	
 	// forwards method
 	@Test
 	public void right1Foot() {
 		
 		//sensor input array
-		double[][] bArray = {{1 / Math.sqrt(2.0)}, {1 / Math.sqrt(2.0)}, {-1 / Math.sqrt(2.0)} , {-1 / Math.sqrt(2.0)}};
+		double[][] bArray = {{(1 / Math.sqrt(2.0))}, {1 / Math.sqrt(2.0)}, {-1 / Math.sqrt(2.0)} , {-1 / Math.sqrt(2.0)}};
 		
 		OdometryMath math = new OdometryMath();
 		double[] result = math.calculateRobotMotion(new Mouse[] {m1, m2}, bArray);

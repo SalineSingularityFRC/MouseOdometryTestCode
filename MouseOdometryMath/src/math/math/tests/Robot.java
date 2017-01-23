@@ -12,7 +12,7 @@ public class Robot {
 	public static double world_dy;
 
 	//Tolerance for test case calculated values
-	public static final double TOLERANCE = 0.001;
+	public static final double TOLERANCE = 0.1;
 	
 	//TODO add a resetValues method that sets all variables to null and is called by each test method before the rest of the method
 }

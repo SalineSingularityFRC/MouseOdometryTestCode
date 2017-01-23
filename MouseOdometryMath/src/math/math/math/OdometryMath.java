@@ -61,6 +61,7 @@ public class OdometryMath {
 			
 			System.out.println("Robot motion array:" + Arrays.toString(robotMotionArray));
 			return robotMotion.getColumnPackedCopy();
+			
 		} else {
 			System.out.println("Number of sensor inputs and number of mice are incompatible");
 			return null;
