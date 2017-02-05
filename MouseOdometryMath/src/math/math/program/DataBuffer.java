@@ -1,5 +1,7 @@
 package math.math.program;
 
-public class DataBuffer {
 
+//Holds mouse data until the 
+public class DataBuffer {
+	
 }
