@@ -4,3 +4,4 @@ The goal of the Mouse Odometry Project is to use four (or any number 2 or greate
 
 We would be happy to share our work with other teams who would like to implement similar systems!
 
+Note: to maximize mouse polling rate we appended " usbhid.mousepoll=0 " to the raspberry pi's /boot/cmdline.txt
