@@ -6,7 +6,7 @@ import Jama.Matrix;
 
 public class OdometryMath {
 	
-	public double[] calculateSensorMotion(Mouse[] mice, double robot_dx, double robot_dy, double robot_dw) {
+	public static double[] calculateSensorMotion(Mouse[] mice, double robot_dx, double robot_dy, double robot_dw) {
 		
 		Matrix robotMotion = new Matrix(new double[][] {{robot_dx}, {robot_dy}, {robot_dw}});
 		
@@ -33,7 +33,7 @@ public class OdometryMath {
 		return result.getColumnPackedCopy();
 	}
 	
-	public double[] calculateRobotMotion(Mouse[] mice, double[][] sensorInputsArray) {
+	public static double[] calculateRobotMotion(Mouse[] mice, double[][] sensorInputsArray) {
 		if(2*mice.length == sensorInputsArray.length) {
 			
 			Matrix b = new Matrix(sensorInputsArray);
